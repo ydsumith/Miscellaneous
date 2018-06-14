@@ -1,1 +1,1 @@
-# miscellaneous
+Miscellaneous scripts and codes
