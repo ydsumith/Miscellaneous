@@ -1,3 +1,8 @@
 1. battery.vbs
 
 This code can monitor the laptop battery and shows a message when to remove the charger.
+
+In case if you encounter invalid character error try the following.
+  1. Open the .vbs in notepad
+  2. Go to file and "save as"
+  3. Right under the file name box, you will see a drop down menu for encoding. Choose ANSI.
