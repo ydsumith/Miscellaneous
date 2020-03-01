@@ -1,0 +1,10 @@
+#include "ffgmx.itp"
+
+#include "spce.itp"
+;#include "h.itp"
+
+[ system ]
+901 SPC/E water
+
+[ molecules ]
+SOL  2

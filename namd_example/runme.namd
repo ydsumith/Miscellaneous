@@ -1,0 +1,60 @@
+#----------input-----
+
+coordinates             original.pdb
+structure               original.psf
+parameters              par_all27_prot_lipid_na.inp
+paratypecharmm          on
+#bincoordinates         minimized.restart.coor
+#binvelocities	        minimized.restart.vel
+
+#----------output------
+
+set output              first_run
+
+outputname              $output
+dcdfile                 ${output}.dcd
+xstFile                 ${output}.xst
+dcdfreq                 50
+xstFreq                 50
+binaryoutput            yes
+binaryrestart           yes
+outputEnergies          50
+restartfreq             50
+
+
+#---------Basic dynamics-------
+exclude                 scaled1-4
+1-4scaling              1
+COMmotion               no
+dielectric              1.0
+
+#--------Simulation space partitioning----
+switching               on
+switchdist              9
+cutoff                  10
+pairlistdist            11
+
+#--------Multiple time stepping----
+firsttimestep           0
+timestep                1
+stepspercycle			1
+
+#-------Temperature control----
+set temperature         310
+temperature             $temperature;  # initial temperature
+
+#-------Langevin Dynamics------
+langevin                on;            # do langevin dynamics
+langevinDamping         1;              # damping coefficient (gamma) of 1/ps
+langevinTemp            $temperature;   # bath temperature
+
+# Periodic Boundary conditions
+cellBasisVector1    31.2   0.   0.  ;# vector to the next image
+cellBasisVector2     0.   44.8  0.
+cellBasisVector3     0.    0   51.3
+cellOrigin           0.    0.   0.  ;# the *center* of the cell
+
+#---------Scripting
+minimize            100          ;# lower potential energy for 1000 steps
+reinitvels          $temperature  ;# since minimization zeros velocities
+run 2000;
