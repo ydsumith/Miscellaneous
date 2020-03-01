@@ -1,0 +1,26 @@
+# Reactive CGMD - Sumith Yesudasan
+
+log res_log.log
+
+pair_coeff * * 0.23838 4.0
+pair_coeff 2 2 0.23838 2.5
+pair_coeff * 4 0.001 1
+#pair_coeff 2 4 0.23838 2.5
+#pair_coeff 3 4 0.23838 2.0
+#pair_coeff 4 4 0.023838 8.0
+
+#pair_sumith k1 k2 rbond rcrit
+pair_sumith 100 10 3.5 8
+
+bond_coeff 1 0.2225888 5.75
+angle_coeff 1 10.2 180
+
+timestep 0.5
+rcut 50
+
+nxtout 2
+nveout 2
+
+tref 310
+
+run 500
