@@ -1,0 +1,40 @@
+#LAMMPS input file for NVT of LJ
+
+units metal
+
+boundary p p p
+
+atom_style full
+
+#pair_style lj/sf 11
+pair_style lj/sf/dipole/sf 11
+
+read_data lammps.dat
+
+neighbor 3 bin
+
+neigh_modify delay 0 every 1 check yes
+
+pair_coeff 1 1 0.0067368 3.4 11
+
+timestep 0.005
+
+fix 1 all nvt temp 90.0 90.0 0.1
+
+log logfile.res
+
+#minimize 1.0e-4 1.0e-6 100 1000
+
+thermo 200
+
+thermo_style custom step temp pe ke etotal press pxx pyy pzz
+
+thermo_modify flush yes
+
+thermo_modify norm yes
+
+#dump 1 all xtc 100 traj.xtc
+
+dump 2 all xyz 200 traj.xyz
+
+run 40000
