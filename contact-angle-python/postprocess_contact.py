@@ -1,14 +1,13 @@
 import os
 import numpy as np
 import re
-from PIL import Image
 import matplotlib.pyplot as plt
 
 
 def get_current_folder():
-    cur_dir1 = os.getcwd() # works with Spyder
-    cur_dir2 = cur_dir1.replace("\\","/");
-    return cur_dir1,cur_dir2;
+    cur_dir1 = os.getcwd()  # works with Spyder
+    cur_dir2 = cur_dir1.replace("\\", "/")
+    return cur_dir1, cur_dir2
 
 
 def GetColour(v,  vmin,  vmax):
@@ -37,61 +36,62 @@ def GetColour(v,  vmin,  vmax):
 
 
 def main():
-    Temp = np.array([0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, \
-                     0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]);
+    epsilon = np.array([0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07,
+                        0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])
     # zlo = 0;    zhi = 200;    xlo = -75;    xhi = 75;
-    
+
     dir1, dir2 = get_current_folder()
-    in_file = dir2 + "/data/dump_" + str(Temp[11]) + ".xyz";
-    out_file = dir2 + "/results/result_" + str(Temp[11]) + ".txt";
-    out_image = dir2 + "/results/image_" + str(Temp[11]) + ".png";
-    print("File to read is \n", in_file)
-    print("File to write is \n", out_file)
-    
 
-    zlo = 0
-    zhi = 150
-    xlo = -75
-    xhi = 75
-    dr = 0.5
-    NX = int((xhi-xlo)/dr)
-    NZ = int((zhi-zlo)/dr)
-    res = np.zeros([NZ, NX])  # note that columns are x and rows are z
+    for Temp in epsilon:
+        in_file = dir2 + "/data/dump_" + str(Temp) + ".xyz"
+        out_file = dir2 + "/results/result_" + str(Temp) + ".txt"
+        out_image = dir2 + "/results/image_" + str(Temp) + ".png"
+        print("File to read is \n", in_file)
+        print("File to write is \n", out_file)
 
-    print("\nPlease wait while I am working...")
+        zlo = 0
+        zhi = 200
+        xlo = -75
+        xhi = 75
+        dr = 1
+        NX = int((xhi-xlo)/dr)
+        NZ = int((zhi-zlo)/dr)
+        res = np.zeros([NZ, NX])  # note that columns are x and rows are z
 
-    with open(in_file) as file_in:
-        for line in file_in:
-            temp1 = re.findall(
-                r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", line)
-            # An expected line should be 2 -47.25 -74.25 0 [type x y z]
-            if len(temp1) == 4:  # for a valid entry
-                if float(temp1[0]) == 1:  # for type 1, water beads
-                    locx = int((float(temp1[1])-xlo)/dr)
-                    locz = int((float(temp1[3])-zlo)/dr)
+        print("\nPlease wait while I am working...")
 
-                    res[locz][locx] += 1
+        with open(in_file) as file_in:
+            for line in file_in:
+                temp1 = re.findall(
+                    r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", line)
+                # An expected line should be 2 -47.25 -74.25 0 [type x y z]
+                if len(temp1) == 4:  # for a valid entry
+                    if float(temp1[0]) == 1:  # for type 1, water beads
+                        locx = int((float(temp1[1])-xlo)/dr)
+                        locz = int((float(temp1[3])-zlo)/dr)
+                        res[locz][locx] += 1
+        # ---write the optional data to file
+        with open(out_file, "w") as file_out:
+            for i in range(NZ):
+                for j in range(NX):
+                    file_out.write("%.1f " % res[i][j])
+                file_out.write("\n")
 
-    with open(out_file, "w") as file_out:
-        for i in range(NZ):
-            for j in range(NX):
-                file_out.write("%.1f " % res[i][j])
-            file_out.write("\n")
-    # plt.scatter(X[:, 0], X[:, 1], s=50, c = truth)
+        maxval = np.amax(res)
+        print("Max value: %f" % maxval)
 
-    maxval = np.amax(res)
-    print("Max value: %f" % maxval)
+        # ---plotting business
+        x, y = np.meshgrid(np.linspace(xlo, xhi, NX),
+                           np.linspace(zlo, zhi, NZ))
+        plt.show()
+        #plt.contourf(x, y, res, 10, cmap='binary')
+        plt.imshow(res, extent=[xlo, xhi, zlo, zhi],
+                   origin='lower', cmap='jet')
+        plt.colorbar()
+        plt.axis(aspect='image')
+        plt.savefig(out_image, dpi=1200)
 
-    img = Image.new('RGB', [NZ, NX], 255)
-    data = img.load()
-    for i in range(NZ):
-        for j in range(NX):
-            r, g, b = GetColour(255 * res[i, j] / maxval, 0, 255)
-            data[i, j] = (int(255*r), int(255*g), int(255*b))
-
-    # img.putdata(data)
-    img.save(out_image)
-    print("\nKallan finished it")
+    print("\nProgram finished.")
 
 
 if __name__ == "__main__":
