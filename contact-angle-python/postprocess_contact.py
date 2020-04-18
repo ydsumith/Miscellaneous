@@ -9,47 +9,19 @@ def get_current_folder():
     cur_dir2 = cur_dir1.replace("\\", "/")
     return cur_dir1, cur_dir2
 
-
-def GetColour(v,  vmin,  vmax):
-    r = 1
-    g = 1
-    b = 1
-    if (v < vmin):
-        v = vmin
-    if (v > vmax):
-        v = vmax
-
-    dv = vmax - vmin
-    if (v < (vmin + 0.25 * dv)):
-        r = 0
-        g = 4 * (v - vmin) / dv
-    elif (v < (vmin + 0.5 * dv)):
-        r = 0
-        b = 1 + 4 * (vmin + 0.25 * dv - v) / dv
-    elif (v < (vmin + 0.75 * dv)):
-        r = 4 * (v - vmin - 0.5 * dv) / dv
-        b = 0
-    else:
-        g = 1 + 4 * (vmin + 0.75 * dv - v) / dv
-        b = 0
-    return r, g, b
-
-
-def euclidean_norm_numpy(x1, x2):
-    return np.linalg.norm(x1 - x2, axis=0)
-
-
 def main():
     epsilon = np.array([0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07,
-                        0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])
+                        0.08, 0.09, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35,
+                        0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 
+                        0.8, 0.85, 0.9])
     zlo = 0
     zhi = 200
     xlo = -75
     xhi = 75
-    dr = 0.5
+    dr = 1
 
-    NX = int((xhi-xlo)/dr)+5
-    NZ = int((zhi-zlo)/dr)+5    
+    NX = int((xhi-xlo)/dr)+2
+    NZ = int((zhi-zlo)/dr)+2    
     x = np.linspace(xlo, xhi, NX)
     y = np.linspace(zlo, zhi, NZ)
     GX, GY = np.meshgrid(x, y)
@@ -114,7 +86,8 @@ def main():
         plt.show()
         plt.contourf(GX, GY, GZ, 20, cmap='YlGnBu')
         plt.colorbar()
-        plt.axis(aspect='image')
+        plt.title("Epsilon = %.3f" % Temp)
+        plt.axes().set_aspect('equal', 'datalim')
         plt.savefig(out_image, dpi=1200)
 
     print("\nProgram finished.")
