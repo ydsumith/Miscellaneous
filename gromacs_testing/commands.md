@@ -53,13 +53,16 @@ Install simulation tools:
 conda install -c conda-forge gromacs
 pip install martinize2 insane
 
-Verify installation:
+```
 
+##Verify installation:
+
+```bash
 gmx --version
 insane -h
 martinize2 -h
-Expected Output
-
+```
+##Expected Output
 Successful commands should display:
 
 GROMACS version information
