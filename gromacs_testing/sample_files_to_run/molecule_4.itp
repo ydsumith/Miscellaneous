@@ -1,0 +1,106 @@
+; This file was generated using the following command:
+; /home/ydsumith/.local/bin/martinize2 -f fibrinogen.pdb -o top_fibrinogen.top -x fibrinogen_cg.pdb -ff martini3001 -dssp -elastic -el 0.1 -eu 0.5
+; martinize with vermouth 0.15.0
+; The following sequence of secondary structure 
+; was used for the full system:
+; CCCCCCCCBCCSSSBTTEEECHHHHHHHHHHHHHHHHHHHHHHHHHHTHHHHHHHHHHHHHHHHHHTTSSHHHHHHHHHHHHHHTTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHGGGTBSCCCCCCCCHHHHHHHHHHHHHHHTTCCCCSCCCCCCCCCCCCBCSSTTTCBCEECHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTHHHHHHHHHHHHHHHHHHIIIIISCHHHHHHHHHTHHHHIIIIIHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTSSBCEECCCEESCEESSHHHHHHTTCCSCSEEEECSCSSSCCEEEEEECSTTSSCEEEEEEESSSCSCCCCCHHHHHHEEECCEECCTTCSSCCEECCEEECHHHHHHHHHTSCEEEEEEECCTTSCCEEEEEEEEEECCGGGTTCEEEEEEESSSCCCTTTCCTTSCHHHHTTSCCTTCCCBBTTBCCCSCCCSCSSCCHHHHTCSCBCCSSSCSCBSSSCCCTTSBCCGGGSTTSSCCSSBCHHHHCTTBCCSCEEEEEEECCCCSCEEECSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHCTTTCCCTTCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTTSCSCCEESCCCCSCCBSSHHHHHHTCCCCCEEEEECCTTCSSCEEEEEEECTTCCEEEEEEEESSCCSCCCCCHHHHHHCEEEECSSSCCCEECCHHHHHHHHTSSSCCEEEEEEEECTTSCCCEEEEEEEEECCGGGTSCEECSEEEECTTCCGGGCCCCSSCTTHHHHSCCTTCCCEETTBCCSSSSSCHHHHHTSEECCSSSCSEESSCBCCSSSBCCTTTSTTSSCCBSEETTTSCTTBCCSEEEEEEEEGGGTCCCCCSCCCCBCCTTTTTTEECCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTTHHHHHHHHHHHHHTTTTTTHHHHHTHHHHHTTTTTTTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTTTTTSSCCCCCCCCHHHHHHHHHHHHHHHSSCSCCSCSCCCCCCCSCCBCSCSSSCBEEECHHHHHHHHTTTHHHHHHTTHHHHHTTSHHHHHHHHHSSHHHHHHHHHHHHHHHHHHHHHHSSSSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTHHHHSSSSCCEECCCCBSCCSSCHHHHHHTTCCSCEEEEECSCTTSCCEEEEECCSGGGSCCEEEEEESSSCSCCCCCHHHHHHEEECSCBCCTTCSSCCBCCCEEECHHHHHHHHTTSCEEEEEEEECSSSCEEEEEEEEEEECCGGGTTCEEEEEEEESSCCTTTSCCSSSCHHHHHTTCCTTCCCBBTTBCCSSCCCSCSTTSHHHHHTSCBCCSSSCSEETTSCCCTTSBCCTTTSTTSSCCSSEETTTSCTTBCCSEEEEEEEECCCCCSEEECHHHHHHHHHTTTTTTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHSSCTTSCCSSSTTTSTTTTHHHHHHHHHHHHTTHHHHTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHTSSSCCEESCCCCCCCSSSHHHHHHHSCCCCCEEEECCTTCSSCEEEEEECCTTCCCEEEEEEESSSCSCCCCCHHHHHHCEEBCCSSSCCCEECCHHHHHHHHTSTTCCEEEEEEEECTTCCEEECCEEEEEECCGGGTTCEECSCBCCCTTCCCTTCCCCSSSTTHHHHTCCTTBCCBCSSCCCSSSSSCHHHHHTSCBCCSSSCSCCCSSCCCSSSBCCTTTSSSSSCCSSCCTTTSCTTBCCSEEEEEEEETHHHHHCCCCCCCCCCCCCCCCC
+
+; Please cite the following papers:
+; Kroon, P C; Grunewald, F; Barnoud, J; van Tilburg, M; Souza, P C; Wassenaar, T A; Marrink, S J;  elife 2024; 10.7554/elife.90627.2
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+; McGibbon, R T; Beauchamp, K A; Harrigan, M P; Klein, C; Swails, J M; Hernández, C X; Schwantes, C R; Wang, L; Lane, T J; Pande, V S;  Biophysical Journal 2015; 10.1016/j.bpj.2015.08.015
+
+; Please cite the following papers:
+; Kroon, P C; Grunewald, F; Barnoud, J; van Tilburg, M; Souza, P C; Wassenaar, T A; Marrink, S J;  elife 2024; 10.7554/elife.90627.2
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+; McGibbon, R T; Beauchamp, K A; Harrigan, M P; Klein, C; Swails, J M; Hernández, C X; Schwantes, C R; Wang, L; Lane, T J; Pande, V S;  Biophysical Journal 2015; 10.1016/j.bpj.2015.08.015
+
+; Please cite the following papers:
+; Kroon, P C; Grunewald, F; Barnoud, J; van Tilburg, M; Souza, P C; Wassenaar, T A; Marrink, S J;  elife 2024; 10.7554/elife.90627.2
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+; McGibbon, R T; Beauchamp, K A; Harrigan, M P; Klein, C; Swails, J M; Hernández, C X; Schwantes, C R; Wang, L; Lane, T J; Pande, V S;  Biophysical Journal 2015; 10.1016/j.bpj.2015.08.015
+
+; Please cite the following papers:
+; Kroon, P C; Grunewald, F; Barnoud, J; van Tilburg, M; Souza, P C; Wassenaar, T A; Marrink, S J;  elife 2024; 10.7554/elife.90627.2
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+; McGibbon, R T; Beauchamp, K A; Harrigan, M P; Klein, C; Swails, J M; Hernández, C X; Schwantes, C R; Wang, L; Lane, T J; Pande, V S;  Biophysical Journal 2015; 10.1016/j.bpj.2015.08.015
+
+; Please cite the following papers:
+; Kroon, P C; Grunewald, F; Barnoud, J; van Tilburg, M; Souza, P C; Wassenaar, T A; Marrink, S J;  elife 2024; 10.7554/elife.90627.2
+; Souza, P C T; Alessandri, R; Barnoud, J; Thallmair, S; Faustino, I; Grünewald, F; Patmanidis, I; Abdizadeh, H; Bruininks, B M H; Wassenaar, T A; Kroon, P C; Melcr, J; Nieto, V; Corradi, V; Khan, H M; Domański, J; Javanainen, M; Martinez-Seara, H; Reuter, N; Best, R B; Vattulainen, I; Monticelli, L; Periole, X; Tieleman, D P; de Vries, A H; Marrink, S J;  Nature Methods 2021; 10.1038/s41592-021-01098-3
+; McGibbon, R T; Beauchamp, K A; Harrigan, M P; Klein, C; Swails, J M; Hernández, C X; Schwantes, C R; Wang, L; Lane, T J; Pande, V S;  Biophysical Journal 2015; 10.1016/j.bpj.2015.08.015
+
+[ moleculetype ]
+molecule_4 1
+
+[ atoms ]
+ 1 Q5   1 GLY BB   1   1 
+ 2 P2   2 HIS BB   2 0.0 
+ 3 TC4  2 HIS SC1  3 0.0 
+ 4 TN6d 2 HIS SC2  4 0.0 
+ 5 TN5a 2 HIS SC3  5 0.0 
+ 6 P2   3 ARG BB   6 0.0 
+ 7 SC3  3 ARG SC1  7 0.0 
+ 8 SQ3p 3 ARG SC2  8 1.0 
+ 9 Q5   4 PRO BB   9  -1 
+10 SC3  4 PRO SC1 10 0.0 
+
+[ bonds ]
+; Backbone bonds
+ 1  2 1 0.350 4000
+ 2  6 1 0.350 4000
+ 6  9 1 0.350 4000
+
+; Side chain bonds
+ 2  3 1 0.336 7500
+ 6  7 1 0.330 5000
+ 7  8 1 0.380 5000
+ 9 10 1 0.330 7500
+
+#ifdef FLEXIBLE
+; Side chain bonds
+ 3  4 1 0.320 1000000
+ 3  5 1 0.300 1000000
+ 4  5 1 0.270 1000000
+#endif
+
+[ constraints ]
+#ifndef FLEXIBLE
+; Side chain bonds
+ 3  4 1 0.320
+ 3  5 1 0.300
+ 4  5 1 0.270
+#endif
+
+[ angles ]
+; BBB angles
+ 1  2  6 10 127 20
+ 2  6  9 10 127 20
+
+; BBS angles regular martini
+ 1  2  3 2 100 25
+ 2  6  7 2 100 25
+ 6  9 10 2 100 25
+
+; SC-BB-BB and BB-BB-SC scFix
+ 1  2  3 10 100 15 ; BB-BB-SC
+ 3  2  6 10 100 15 ; SC-BB-BB
+ 2  6  7 10 100 15 ; BB-BB-SC
+ 7  6  9 10 100 15 ; SC-BB-BB
+ 6  9 10 10 100 15 ; BB-BB-SC
+
+; Side chain angles
+ 2  3  4 2 120.000 50.0
+ 2  3  5 2 120.000 50.0
+ 6  7  8 2 180.000 25.0
+
+[ dihedrals ]
+; SC-BB-BB-SC scFix
+ 3  2  6  7 1 4.4 75 1 ; SC-BB-BB-SC
+ 7  6  9 10 1 84.2 75 1 ; SC-BB-BB-SC
+
+[ exclusions ]
+ 2  3  4  5 
+ 3  4  5 
+ 4  5 
+

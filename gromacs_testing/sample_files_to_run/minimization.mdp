@@ -1,0 +1,19 @@
+integrator               = steep
+emtol                    = 100
+emstep                   = 0.001
+nsteps                   = 100000
+
+cutoff-scheme            = Verlet
+nstlist                  = 20
+
+coulombtype              = reaction-field
+rcoulomb                 = 1.1
+epsilon_r                = 15
+
+vdwtype                  = cutoff
+rvdw                     = 1.1
+
+pbc                      = xyz
+
+nstenergy                = 100
+nstlog                   = 100
